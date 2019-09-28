@@ -1,20 +1,128 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<!--   --This HTML here does work in making text appear when clicked but
+  it is not a true dropdown so moves around text
+  <div class="container col-1 artdropdown">
+      <div class="dropdown container col-2">
+      <button (click) = "toggleDropdown()" class="btn btn-secondary" type="button">
+        Your Art
+      </button>
+        <div *ngIf="displayDropdown" class="col-2">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+    </div> -->
+
+<!-- <div class="container m-2 col-md-8 grid"> -->
+    <div>
+    <div style="text-align:center" class="grid">
+        <div class='jumbotron'>
+          <h1>
+          DrawnWorks Project
+          </h1>
+        </div>
+  <div class="nav1">
+    <nav class='navbar navbar-dark bg-dark justify-content-end fixed-top colornav'>
+  <a class='navbar-brand'>{{ title }}</a>
+
+    <ul class='nav nav-pills fixed-top-end col-xs-6'>
+      <li class="nav-item pr-5"><a class="nav-link" [routerLink] = "['/home']" routerLinkActive="active">Home</a></li>
+      <li class="nav-item pr-5"><a class="nav-link" [routerLink] = "['/drawings']" routerLinkActive="active">Drawings</a></li>
+
+      <li class="nav-item dropdown pr-5">
+        <a class="nav-link dropdown-toggle" href="#">
+        Artful Entertainment</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">More art</a>
+        <a class="dropdown-item" href="#">Awesome art</a>
+      </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" [routerLink]="['/about']" href="#">
+        About</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Contact</a>
+        <a class="dropdown-item hoverGrey" href="#">Info</a>
+      </div>
+      </li>
+      <li class="nav-item">
+          <a *ngIf="!auth.isAuthenticated()" class = "nav-link" [routerLink] = "['user/login']" routerLinkActive="active">Login</a>
+        </li>
+    </ul>
+    <div class="navbar-header navbar-right">
+        <ul class="nav navbar-nav">
+          <li class="pr-5">
+            <a *ngIf="auth.isAuthenticated()" [routerLink]="['user/profile']">Welcome {{auth.currentUser.firstName}}</a>
+          </li>
+          </ul>
+    </div>
+</nav>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+</div>
+    </div>
+
+
+
+<header class="masthead">
+    <div class="container">
+        <div class="intro-text"></div>
+    </div>
+</header>
+<div class="content">
+<div id="main" class="container">
+    <div class="row">
+    <div class="col-lg-12">
+    <router-outlet></router-outlet>
+    </div>
+    </div>
+</div>
+</div>
+
+
+
+<footer class="footer bg-dark fixed-bottom colornav">
+    <div class="container">
+
+
+        <ul class="nav nav-pills nav-fill justify-content-center">
+            <li>
+                    <div class="dropdown">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                              Dropdown button
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Link 1</a>
+                              <a class="dropdown-item" href="#">Link 2</a>
+                              <a class="dropdown-item" href="#">Link 3</a>
+                            </div>
+                          </div>
+            </li>
+           <li class="nav-item dropdown">
+               <a href="#" class="nav-link dropdown-toggle make-grey" id="navDropdown"
+               data-toggle="dropdown" aria-haspopup="true">Drawings</a>
+              <div class="dropdown-menu" aria-labelledby="navDropdown">
+                  <a href="#" class="dropdown-item">Children's Drawings</a>
+                  <a href="#" class="dropdown-item ">Drawings</a>
+              </div>
+           </li>
+            <li class="nav-item">
+                <a [routerLink]="['/create-drawing']" routerLinkActive="router-link-active"  href="#" class="nav-link hover-grey">Create Drawing</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link hover-grey">Services</a>
+            </li>
+
+        </ul>
+
+</div>
+    <!-- <div class='container'>
+    <div class='row'>
+      <div class='col-md-8'>
+    <button class="btn btn-primary m-2" style="margin-left:450px">Bootstrap example button</button>
+        </div>
+    </div>
+    </div> -->
+</footer>
+
+
 

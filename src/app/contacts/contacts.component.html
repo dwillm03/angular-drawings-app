@@ -1,0 +1,49 @@
+<div class="main-grid">
+  <div class="container-fluid">
+  <div class="grid">
+   <table class="table">
+    <div class="item1">
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Email</th>
+    </tr>
+    </div>
+
+    <div class="item2">
+    <tr *ngFor="let contact of contacts">
+      <td>{{ contact.name }}</td>
+      <td>{{ contact.title }}</td>
+      <td>{{ contact.email }}</td>
+    </tr>
+  </div>
+  </table>
+  </div>
+</div>
+<div class="main-item2">
+<div class="header-design">
+<h3 class="header-align">Enter New Contact</h3>
+</div>
+
+<form [formGroup] = "contactForm" (ngSubmit) = "addContact(contactForm.value)">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input formControlName="firstName" id="firstName" type="text" class="form-control" required>
+  </div>
+  <div>
+    <label for="lastName">Last Name</label>
+    <input formControlName="lastName" id="lastName" type="text" class="form-control" required>
+  </div>
+  <div>
+    <label for="title">Title</label>
+    <input formControlName="title" id="title" type="text" class="form-control" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<div>
+
+</div>
+
+</div>
+</div>

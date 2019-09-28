@@ -1,0 +1,33 @@
+<div>
+    <img class="col-md-8" [src] = "drawing.imageUrl">
+</div>
+<div class="container card">
+    <div class="row">
+            <div class="col-md-4 h6">
+                    Name:
+                </div>
+        <div class="col-md-4">
+            {{ drawing.name }}
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-md-4 h6">
+                    Description:
+            </div>
+        <div class="col-md-4">
+            {{ drawing.description }}
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-md-2 h6">
+                    URL:
+                </div>
+        <div class="col-md-8">
+            {{ drawing.imageUrl }}
+        </div>
+    </div>
+</div>
+
+<div class="container goBack">
+        <button (click) = "goBack()" class="btn btn-primary">Go Back</button>
+</div>

@@ -1,0 +1,61 @@
+<div style="width:100%; height:500px">
+<div class='container col-10'>
+  
+  <header class="">
+    
+  </header>
+  
+  <div class="container">
+      <table class='table'>{{ favList }}
+        </table>
+  <div class="table-responsive">
+  <table class='table'>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image</th>
+    </tr>
+    <tr *ngFor = "let drawing of drawings">
+      <td>{{ drawing.id }}</td>
+      <td>{{ drawing.name }}</td>
+      <td>{{ drawing.description }}</td>
+      <td><a [routerLink] = "['/drawings', drawing.id]">
+        <img class="img-fluid img-thumbnail float-right pic" [src] = "drawing.imageUrl" >
+      </a></td>
+      <td><button (click) = "onClick()" class="btn btn-primary">Add Favorite</button></td>
+      <router-outlet></router-outlet> 
+      <button (click) = "clickCancel()" class="btn btn-default">Cancel</button>
+      <app-favorite-drawings *ngIf="isFav" #favDrawings (addFavorite) = "favAdded($event)" [myFav] = "drawing.name" [favId] = "drawing.id" ></app-favorite-drawings>
+     </tr>
+    
+  </table>
+  
+  </div>
+
+  </div>
+ 
+</div>
+<!-- </div> -->
+
+
+<!-- <div class='redOutline container bg-light'>
+  <div class='container redOutline row bg-light justify-content-center align-items-center' style="height:200px">
+    <div class='col-md-12'>
+      <div class='d-flex p-5 flex-row'>
+        <div class='col-md-1'>Name</div>
+        <div class='col-md-6'>Comic Book</div>
+        <div class='col-md-1'>Name</div>
+        <div class='col-md-4'>Comic</div>
+      </div>
+      <div class='d-flex p-5 flex-row align-items-baseline'>
+        <div class='col-md-1 h5'>Name</div>
+        <div class='col-md-6'>Anime Manga</div>
+        <div class='col-md-1'>Name</div>
+        <div class='col-md-4'>Comic Book</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div> -->

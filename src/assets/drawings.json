@@ -1,0 +1,17 @@
+[
+{ "id": 1,
+  "name": "Kid's Chemistry",
+  "description": "Girl doing chemistry with dad.",
+  "imageUrl": "http://www.drawnworks.com/images/Tale of Two Books/GirlChemistry.jpg"
+},
+{   "id": 2,
+    "name": "Boy and Mom Construction",
+    "description": "Boy doing construction work with mom.",
+    "imageUrl": "http://www.drawnworks.com/images/Tale of Two Books/Construction.jpg"
+  },
+  { "id": 3,
+    "name": "Prentice White, daughter, and dog",
+    "description": "Kaydence plays with dog throwing popcorn while they both read.",
+    "imageUrl": "http://www.drawnworks.com/images/Tale of Two Books/KaydenceWithDog.jpg"
+  }
+]

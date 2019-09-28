@@ -1,0 +1,13 @@
+em {
+    float: right;
+    color: #e05C65;
+    padding-left: 10px;
+}
+@media (max-width: 100px)
+{
+  .grid
+  {
+  display: grid;
+  grid-template-columns: 100px
+  }
+}

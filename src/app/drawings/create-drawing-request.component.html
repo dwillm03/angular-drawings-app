@@ -1,0 +1,59 @@
+<h1>New Drawing</h1>
+<hr>
+<div class="container-fit col-md-6">
+  <form #newDrawingForm="ngForm" (ngSubmit)="saveDrawing(newDrawingForm.value)" autocomplete="off" novalidate>
+    <div class="form-group" [ngClass]="{'error': newDrawingForm.controls.name?.invalid && newDrawingForm.controls.name?.touched}">
+      <label for="drawingName">Drawing Name:</label>
+      <em *ngIf="newDrawingForm.controls.name?.invalid && (newDrawingForm.controls.name?.touched)">Required</em>
+      <input (ngModel)="newDrawing.name" name="name" required id="name" type="text" class="form-control" placeholder="Name of your drawing..." />
+    </div>
+    <div class="form-group" [ngClass]="{'error': newDrawingForm.controls.date?.invalid && newDrawingForm.controls.date?.touched}">
+      <label for="drawingDate">Drawing Date:</label>
+      <em *ngIf="newDrawingForm.controls.date?.invalid && (newDrawingForm.controls.date?.touched)">Required</em>
+      <input (ngModel)="newDrawing.date" name="date" required id="drawingDate" type="text" class="form-control" placeholder="format (mm/dd/yyyy)..." />
+    </div>
+    <div class="form-group" [ngClass]="{'error': newDrawingForm.controls.time?.invalid && newDrawingForm.controls.time?.touched}">
+      <label for="drawingTime">Drawing Time:</label>
+      <em *ngIf="newDrawingForm.controls.time?.invalid && (newDrawingForm.controls.time?.touched)">Required</em>
+      <input (ngModel)="newDrawing.time" name="time" required id="drawingTime" type="text" class="form-control" placeholder="start and end time..." />
+    </div>
+    <div class="form-group" [ngClass]="{'error': newDrawingForm.controls.price?.invalid && newDrawingForm.controls.price?.touched}">
+      <label for="drawingPrice">Drawing Price:</label>
+      <em *ngIf="newDrawingForm.controls.price?.invalid && (newDrawingForm.controls.price?.touched)">Required</em>
+      <input (ngModel)="newDrawing.price" name="price" required id="drawingPrice" type="text" type="number" class="form-control" placeholder="drawing price..." />
+    </div>
+
+    <div ngModelGroup = "location">
+    <div class="form-group">
+      <label for="address">Drawing Location:</label>
+      <input (ngModel)="newDrawing.address" name="address" id="address" type="text" class="form-control" placeholder="Address of drawing..." />
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <input (ngModel)="newDrawing.city" name="city" id="city" type="text" class="form-control" placeholder="City..." />
+      </div>
+      <div class="col-md-6" >
+        <input (ngModel)="newDrawing.country" name="country" id="country" type="text" class="form-control" placeholder="Country..." />
+      </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <label for="onlineUrl">Online Url:</label>
+      <input (ngModel)="newDrawing.onlineUrl" name="onlineUrl" id="onlineUrl" type="text" class="form-control" placeholder="Online Url..." />
+    </div>
+    <div class="form-group" [ngClass]="{'error': newDrawingForm.controls.imageUrl?.invalid && newDrawingForm.controls.imageUrl?.touched}">
+      <label for="imageUrl">Image:</label>
+      <em *ngIf="newDrawingForm.controls.imageUrl?.invalid && newDrawingForm.controls.imageUrl?.touched && newDrawingForm.controls.imageUrl?.errors.required">Required</em>
+      <em *ngIf="newDrawingForm.controls.imageUrl?.invalid && newDrawingForm.controls.imageUrl?.touched  && newDrawingForm.controls.imageUrl?.errors.pattern">Must be a png or jpg url</em>
+      <input (ngModel)="newDrawing.imageUrl" name="imageUrl" required
+        pattern=".*\/.*.(png|jpg)" id="imageUrl" type="text" class="form-control" placeholder="url of image..." />
+        <img class="img-thumbnail" [src]="newDrawingForm.controls.imageUrl.value"
+        *ngIf="newDrawingForm.controls.imageUrl?.valid">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" [disabled]="newDrawingForm.invalid" class="btn btn-default" (click)="cancel()">Cancel</button>
+  </form>
+
+</div>

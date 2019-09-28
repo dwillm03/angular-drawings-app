@@ -1,0 +1,17 @@
+[
+{ "id": 1,
+  "name": "Sniper",
+  "description": "Leader of the his army. Skilled marksman, strategist, and skilled at hand to hand combat",
+  "imageUrl": "images/DivergentChill-FoN2.jpg"
+},
+{   "id": 2,
+    "name": "Divergent Chill",
+    "description": "Skilled female warrior. Part of an alien race; mysterious past.",
+    "imageUrl": "/images/DivergentChill-FoN2.jpg"
+  },
+  { "id": 3,
+    "name": "Divergent Chill 2",
+    "description": "Sequel to the novel about the skilled young warrior.",
+    "imageUrl": "/src/images/DivergentChillTitle-Final.jpg"
+  }
+]

@@ -1,0 +1,12 @@
+header.masthead{
+        text-align: center;
+        color: white;
+        background-image: url('img/header.jpg');
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-position: center center;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+    }
+ 
